@@ -2,6 +2,7 @@
 Ajechess is standard rules chess game that uses a GUI interface along with external png images to create a full chess game with an AI opponent that has adjustable difficulty level.
 # Planned Updates
 No planned updates as of 10/5/2018
+
 *Some updates to fix bugs were added after this date*
 # Getting Started
 Simpily double click the icon for the exe or jar file to open.
