@@ -16,13 +16,13 @@ public class PawnPromotionPanel extends JDialog implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	int index;
     int location;
-    JPanel pawnPromotionPanel;
+    JPanel PawnPromotion;
     Ajechess ajechess;
 
     public PawnPromotionPanel(Ajechess ajechess) {
         setTitle("Replace pawn with");
         this.ajechess = ajechess;
-        pawnPromotionPanel = new JPanel(new GridLayout(1,4,10,0));
+        PawnPromotion = new JPanel(new GridLayout(1,4,10,0));
 
         int[] cmdActions = {Pieces.QUEEN,Pieces.ROOK,Pieces.BISHOP,Pieces.KNIGHT};     
         
@@ -30,9 +30,9 @@ public class PawnPromotionPanel extends JDialog implements ActionListener {
             JButton button = new JButton();
             button.addActionListener(this);
             button.setActionCommand(cmdActions[i]+"");
-            pawnPromotionPanel.add(button);
+            PawnPromotion.add(button);
         }
-        setContentPane(pawnPromotionPanel);        
+        setContentPane(PawnPromotion);        
         setResizable(false);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent event) {
@@ -42,7 +42,7 @@ public class PawnPromotionPanel extends JDialog implements ActionListener {
         );
     }
     public void setIcons(boolean white) {
-        Component[] components = pawnPromotionPanel.getComponents();
+        Component[] components = PawnPromotion.getComponents();
         Resource resource = new Resource();
         String[] resourceStrings =  {"q","r","b","n"};
         for(int i=0; i<components.length; i++) {
