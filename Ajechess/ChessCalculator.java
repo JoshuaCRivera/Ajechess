@@ -20,7 +20,8 @@ public class ChessCalculator {
 					}
 					if (col > 4) {
 						human_score -= ((col - 4));
-					} else if (col < 3) {
+					}
+					else if (col < 3) {
 						human_score -= ((3 - col));
 					}
 					if (col > 1 && col < 6 && row > 1) {
@@ -29,7 +30,8 @@ public class ChessCalculator {
 					if (row == 0) {
 						human_score += Pieces.QUEEN;
 					}
-				} else if (value == Pieces.KNIGHT) {
+				}
+				else if (value == Pieces.KNIGHT) {
 					if (row == 7) {
 						human_score -= 1;
 					}
@@ -39,7 +41,8 @@ public class ChessCalculator {
 					if (col > 1 && col < 6 && row > 1 && row < 6) {
 						human_score += 1;
 					}
-				} else if (value == Pieces.BISHOP) {
+				}
+				else if (value == Pieces.BISHOP) {
 					if (row == 7) {
 						human_score -= 1;
 					}
@@ -64,14 +67,16 @@ public class ChessCalculator {
 						computer_score += row;
 					if (col > 4) {
 						computer_score -= ((col - 4));
-					} else if (col < 3) {
+					}
+					else if (col < 3) {
 						computer_score -= ((3 - col));
 					}
 					if (col > 1 && col < 6 && row > 1)
 						computer_score += 2;
 					if (row == 7)
 						computer_score += Pieces.QUEEN;
-				} else if (value == Pieces.KNIGHT) {
+				}
+				else if (value == Pieces.KNIGHT) {
 					if (row == 0)
 						computer_score -= 1;
 					if (col == 0 || col == 7)

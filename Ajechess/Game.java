@@ -22,7 +22,8 @@ public class Game {
 		if (positions.length == 0) {
 			if (isChecked(player)) {
 				state = Ajechess.CHECKMATE;
-			} else {
+			}
+			else {
 				state = Ajechess.DRAW;
 			}
 		}
@@ -43,7 +44,8 @@ public class Game {
 
 		if (player == Ajechess.PLAYER) {
 			king = playerKing;
-		} else {
+		}
+		else {
 			king = aiKing;
 		}
 
@@ -81,7 +83,8 @@ public class Game {
 				checked = true;
 			if (left_square < 0 && position.aiPieces[-left_square].value == Pieces.PAWN)
 				checked = true;
-		} else {
+		}
+		else {
 			int right_square = position.board[location + 11];
 			int left_square = position.board[location + 9];
 			if (right_square != Ajechess.ILLEGAL_MOVE) {
@@ -112,7 +115,8 @@ public class Game {
 					checked = true;
 					break;
 				}
-			} else {
+			}
+			else {
 				if (des_square > 0 && des_square != Ajechess.EMPTY
 						&& position.playerPieces[des_square].value == Pieces.KNIGHT) {
 					checked = true;
@@ -137,7 +141,8 @@ public class Game {
 					checked = true;
 					break;
 				}
-			} else {
+			}
+			else {
 				if (des_square > 0 && des_square != Ajechess.EMPTY
 						&& position.playerPieces[des_square].value == Pieces.KING) {
 					checked = true;
@@ -153,7 +158,7 @@ public class Game {
 		int[] deltas = { 11, -11, 9, -9 };
 		for (int i = 0; i < deltas.length; i++) {
 			int delta = king.location + deltas[i];
-			while (true) {
+			while(true) {
 				int des_square = position.board[delta];
 				if (des_square == Ajechess.ILLEGAL_MOVE) {
 					checked = false;
@@ -163,14 +168,17 @@ public class Game {
 					if (des_square < 0 && position.aiPieces[-des_square].value == Pieces.BISHOP) {
 						checked = true;
 						break;
-					} else if (des_square != Ajechess.EMPTY)
+					}
+					else if (des_square != Ajechess.EMPTY)
 						break;
-				} else if (king == aiKing) {
+				}
+				else if (king == aiKing) {
 					if (des_square > 0 && des_square != Ajechess.EMPTY
 							&& position.playerPieces[des_square].value == Pieces.BISHOP) {
 						checked = true;
 						break;
-					} else if (des_square != Ajechess.EMPTY)
+					}
+					else if (des_square != Ajechess.EMPTY)
 						break;
 				}
 				delta += deltas[i];
@@ -186,7 +194,7 @@ public class Game {
 		int[] deltas = { 1, -1, 10, -10 };
 		for (int i = 0; i < deltas.length; i++) {
 			int delta = king.location + deltas[i];
-			while (true) {
+			while(true) {
 				int des_square = position.board[delta];
 				if (des_square == Ajechess.ILLEGAL_MOVE) {
 					checked = false;
@@ -196,14 +204,17 @@ public class Game {
 					if (des_square < 0 && position.aiPieces[-des_square].value == Pieces.ROOK) {
 						checked = true;
 						break;
-					} else if (des_square != Ajechess.EMPTY)
+					}
+					else if (des_square != Ajechess.EMPTY)
 						break;
-				} else if (king == aiKing) {
+				}
+				else if (king == aiKing) {
 					if (des_square > 0 && des_square != Ajechess.EMPTY
 							&& position.playerPieces[des_square].value == Pieces.ROOK) {
 						checked = true;
 						break;
-					} else if (des_square != Ajechess.EMPTY)
+					}
+					else if (des_square != Ajechess.EMPTY)
 						break;
 				}
 				delta += deltas[i];
@@ -219,7 +230,7 @@ public class Game {
 		int[] deltas = { 1, -1, 10, -10, 11, -11, 9, -9 };
 		for (int i = 0; i < deltas.length; i++) {
 			int delta = king.location + deltas[i];
-			while (true) {
+			while(true) {
 				int des_square = position.board[delta];
 				if (des_square == Ajechess.ILLEGAL_MOVE) {
 					checked = false;
@@ -230,14 +241,17 @@ public class Game {
 						checked = true;
 
 						break;
-					} else if (des_square != Ajechess.EMPTY)
+					}
+					else if (des_square != Ajechess.EMPTY)
 						break;
-				} else if (king == aiKing) {
+				}
+				else if (king == aiKing) {
 					if (des_square > 0 && des_square != Ajechess.EMPTY
 							&& position.playerPieces[des_square].value == Pieces.QUEEN) {
 						checked = true;
 						break;
-					} else if (des_square != Ajechess.EMPTY)
+					}
+					else if (des_square != Ajechess.EMPTY)
 						break;
 				}
 				delta += deltas[i];

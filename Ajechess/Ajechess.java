@@ -134,7 +134,8 @@ public class Ajechess extends JFrame implements MouseListener {
 
 		if (true == whitePiece) {
 			state = PLAYER_MOVE;
-		} else
+		}
+		else
 			state = COMPUTER_MOVE;
 		castling = false;
 		moveSearcher.level = options.levelSlider.getValue();
@@ -144,7 +145,7 @@ public class Ajechess extends JFrame implements MouseListener {
 	public void play() {
 		Thread thread = new Thread() {
 			public void run() {
-				while (true) {
+				while(true) {
 					switch (state) {
 					case PLAYER_MOVE:
 						break;
@@ -186,16 +187,19 @@ public class Ajechess extends JFrame implements MouseListener {
 				color = "White";
 			else
 				color = "Black";
-		} else if (false == whitePiece) {
+		}
+		else if (false == whitePiece) {
 			color = "Black";
-		} else {
+		}
+		else {
 			color = "White";
 		}
 
 		if (result == CHECKMATE) {
 			showEndGameResult("Checkmate: the " + color + " player has won");
 			endGame = true;
-		} else if (result == DRAW) {
+		}
+		else if (result == DRAW) {
 			showEndGameResult("Stalemate: the enemy king cannot move, but is not in check");
 			endGame = true;
 		}
@@ -215,7 +219,8 @@ public class Ajechess extends JFrame implements MouseListener {
 		Object source = event.getSource();
 		if (source == quit) {
 			quit();
-		} else if (source == newGame) {
+		}
+		else if (source == newGame) {
 			if (state == COMPUTER_MOVE) {
 				return;
 			}
@@ -225,7 +230,8 @@ public class Ajechess extends JFrame implements MouseListener {
 				moveSearcher = new MoveSearcher(this);
 			}
 			options.setVisible(true);
-		} else if (source == rules) {
+		}
+		else if (source == rules) {
 			ChessRules.createAndShowUI();
 		}
 	}
@@ -235,9 +241,11 @@ public class Ajechess extends JFrame implements MouseListener {
 		Object source = event.getSource();
 		if (source == newGame) {
 			newGame.setIcon(iconImages.get(NEW_GAME_HOVER_BUTTON));
-		} else if (source == rules) {
+		}
+		else if (source == rules) {
 			rules.setIcon(iconImages.get(RULES_HOVER_BUTTON));
-		} else if (source == quit) {
+		}
+		else if (source == quit) {
 			quit.setIcon(iconImages.get(QUIT_HOVER_BUTTON));
 		}
 	}
@@ -247,9 +255,11 @@ public class Ajechess extends JFrame implements MouseListener {
 		Object source = event.getSource();
 		if (source == newGame) {
 			newGame.setIcon(iconImages.get(NEW_GAME_BUTTON));
-		} else if (source == rules) {
+		}
+		else if (source == rules) {
 			rules.setIcon(iconImages.get(RULES_BUTTON));
-		} else if (source == quit) {
+		}
+		else if (source == quit) {
 			quit.setIcon(iconImages.get(QUIT_BUTTON));
 		}
 	}
@@ -333,7 +343,7 @@ public class Ajechess extends JFrame implements MouseListener {
 				for (int i = 0; i < deltas.length; i++) {
 					int sourceDeltas = source + deltas[i];
 					valid = true;
-					while (destination != sourceDeltas) {
+					while(destination != sourceDeltas) {
 						squareLocation = position.board[sourceDeltas];
 						if (squareLocation != EMPTY) {
 							valid = false;
@@ -364,7 +374,8 @@ public class Ajechess extends JFrame implements MouseListener {
 
 				if (pieceSelected && i == move.source) {
 					graphics.drawImage(images.get(GLOWING_TILE), xDirection * 45 + 1, yDirection * 45 - 1, this);
-				} else if (!pieceSelected && move.destination == i
+				}
+				else if (!pieceSelected && move.destination == i
 						&& (position.board[i] == EMPTY || position.board[i] < 0)) {
 					graphics.drawImage(images.get(GLOWING_DARK_TILE), xDirection * 45 + 1, yDirection * 45 - 1, this);
 				}
@@ -376,7 +387,8 @@ public class Ajechess extends JFrame implements MouseListener {
 				if (position.board[i] > 0) {
 					int piece = position.playerPieces[position.board[i]].value;
 					graphics.drawImage(images.get(piece), xDirection * 45, yDirection * 45, this);
-				} else {
+				}
+				else {
 					int piece = position.aiPieces[-position.board[i]].value;
 					graphics.drawImage(images.get(-piece), xDirection * 45, yDirection * 45, this);
 				}
@@ -398,7 +410,8 @@ public class Ajechess extends JFrame implements MouseListener {
 					pieceSelected = true;
 					move.source = location;
 				}
-			} else if (pieceSelected && validMove(location)) {
+			}
+			else if (pieceSelected && validMove(location)) {
 				pieceSelected = false;
 				move.destination = location;
 				state = PREPARE_ANIMATION;
@@ -459,7 +472,8 @@ public class Ajechess extends JFrame implements MouseListener {
 					return false;
 				if (!game.safeMove(PLAYER, source, 97))
 					return false;
-			} else if (destination == 93) {
+			}
+			else if (destination == 93) {
 				if (position.board[94] != EMPTY)
 					return false;
 				if (position.board[93] != EMPTY)
@@ -469,7 +483,8 @@ public class Ajechess extends JFrame implements MouseListener {
 				if (!game.safeMove(PLAYER, source, 93))
 					return false;
 			}
-		} else {
+		}
+		else {
 			if (source != 94)
 				return false;
 			if (destination != 92 && destination != 96)
@@ -483,7 +498,8 @@ public class Ajechess extends JFrame implements MouseListener {
 					return false;
 				if (!game.safeMove(PLAYER, source, 92))
 					return false;
-			} else if (destination == 96) {
+			}
+			else if (destination == 96) {
 				if (position.board[95] != EMPTY)
 					return false;
 				if (position.board[96] != EMPTY)
@@ -505,7 +521,8 @@ public class Ajechess extends JFrame implements MouseListener {
 		int imageMovement = 0;
 		if (position.board[move.source] > 0) {
 			imageMovement = position.playerPieces[position.board[move.source]].value;
-		} else {
+		}
+		else {
 			imageMovement = -position.aiPieces[-position.board[move.source]].value;
 		}
 		boardPanel.animating_image = images.get(imageMovement);
@@ -522,39 +539,48 @@ public class Ajechess extends JFrame implements MouseListener {
 			if (yPlane == 0) {
 				if (xPlane > 0) {
 					boardPanel.deltaX = 1;
-				} else {
+				}
+				else {
 					boardPanel.deltaX = -1;
 				}
 				boardPanel.deltaY = 0;
-			} else {
+			}
+			else {
 				if (xPlane > 0) {
 					boardPanel.deltaX = Math.abs(xPlane / yPlane);
-				} else {
+				}
+				else {
 					boardPanel.deltaX = -(Math.abs(xPlane / yPlane));
 				}
 				if (yPlane > 0) {
 					boardPanel.deltaY = 1;
-				} else {
+				}
+				else {
 					boardPanel.deltaY = -1;
 				}
 			}
-		} else {
+		}
+		else {
 			if (xPlane == 0) {
 				if (yPlane > 0) {
 					boardPanel.deltaY = 1;
-				} else {
+				}
+				else {
 					boardPanel.deltaY = -1;
 				}
 				boardPanel.deltaX = 0;
-			} else {
+			}
+			else {
 				if (xPlane > 0) {
 					boardPanel.deltaX = 1;
-				} else {
+				}
+				else {
 					boardPanel.deltaX = -1;
 				}
 				if (yPlane > 0) {
 					boardPanel.deltaY = Math.abs(yPlane / xPlane);
-				} else {
+				}
+				else {
 					boardPanel.deltaY = -(Math.abs(yPlane / xPlane));
 				}
 			}
@@ -568,7 +594,8 @@ public class Ajechess extends JFrame implements MouseListener {
 			int source_square = position.board[move.source];
 			if (source_square > 0) {
 				state = COMPUTER_MOVE;
-			} else {
+			}
+			else {
 				if (move.destination > 90 && move.destination < 98
 						&& position.aiPieces[-source_square].value == Pieces.PAWN)
 					promoteComputerPawn();
@@ -580,11 +607,13 @@ public class Ajechess extends JFrame implements MouseListener {
 				if (true == castling) {
 					prepareCastlingAnimation();
 					state = PREPARE_ANIMATION;
-				} else if (move.destination > 20 && move.destination < 29
+				}
+				else if (move.destination > 20 && move.destination < 29
 						&& position.playerPieces[source_square].value == Pieces.PAWN) {
 					promotePlayerPawn();
 				}
-			} else {
+			}
+			else {
 				if (true == gameEnded(PLAYER)) {
 					state = GAME_ENDED;
 					return;
@@ -612,7 +641,8 @@ public class Ajechess extends JFrame implements MouseListener {
 		if (move.destination == 97 || move.destination == 96) {
 			move.source = 98;
 			move.destination -= 1;
-		} else if (move.destination == 92 || move.destination == 93) {
+		}
+		else if (move.destination == 92 || move.destination == 93) {
 			move.source = 91;
 			move.destination += 1;
 		}
@@ -647,7 +677,8 @@ public class Ajechess extends JFrame implements MouseListener {
 				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		if (option == JOptionPane.YES_OPTION) {
 			System.exit(0);
-		} else if (option == JOptionPane.NO_OPTION) {
+		}
+		else if (option == JOptionPane.NO_OPTION) {
 			setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		}
 	}

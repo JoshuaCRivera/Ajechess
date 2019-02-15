@@ -29,7 +29,8 @@ public class MoveSearcher {
 					bestPosition = piecePosition;
 					alpha = score;
 				}
-			} else {
+			}
+			else {
 				Position opponentPosition = alphaBeta(Ajechess.PLAYER, piecePosition, alpha, beta, depth - 1);
 				if (new Game(opponentPosition).isChecked(Ajechess.PLAYER)) {
 					return piecePosition;

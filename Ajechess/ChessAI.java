@@ -27,34 +27,45 @@ public class ChessAI {
 					continue;
 				if (piece.value == Pieces.PAWN) {
 					playerPawnMoves(piece);
-				} else if (piece.value == Pieces.KNIGHT) {
+				}
+				else if (piece.value == Pieces.KNIGHT) {
 					playerKnightMoves(piece);
-				} else if (piece.value == Pieces.KING) {
+				}
+				else if (piece.value == Pieces.KING) {
 					playerKingMoves(piece);
-				} else if (piece.value == Pieces.BISHOP) {
+				}
+				else if (piece.value == Pieces.BISHOP) {
 					playerBishopMoves(piece);
-				} else if (piece.value == Pieces.ROOK) {
+				}
+				else if (piece.value == Pieces.ROOK) {
 					playerRookMoves(piece);
-				} else if (piece.value == Pieces.QUEEN) {
+				}
+				else if (piece.value == Pieces.QUEEN) {
 					playerQueenMoves(piece);
 				}
 			}
-		} else {
+		}
+		else {
 			for (int i = 1; i < position.aiPieces.length; i++) {
 				Pieces piece = position.aiPieces[i];
 				if (piece == null)
 					continue;
 				if (piece.value == Pieces.PAWN) {
 					aiPawnMoves(piece);
-				} else if (piece.value == Pieces.KNIGHT) {
+				}
+				else if (piece.value == Pieces.KNIGHT) {
 					aiKnightMoves(piece);
-				} else if (piece.value == Pieces.KING) {
+				}
+				else if (piece.value == Pieces.KING) {
 					aiKingMoves(piece);
-				} else if (piece.value == Pieces.BISHOP) {
+				}
+				else if (piece.value == Pieces.BISHOP) {
 					aiBishopMoves(piece);
-				} else if (piece.value == Pieces.ROOK) {
+				}
+				else if (piece.value == Pieces.ROOK) {
 					aiRookMoves(piece);
-				} else if (piece.value == Pieces.QUEEN) {
+				}
+				else if (piece.value == Pieces.QUEEN) {
 					aiQueenMoves(piece);
 				}
 			}
@@ -180,7 +191,7 @@ public class ChessAI {
 		int[] deltas = { 11, -11, 9, -9 };
 		for (int i = 0; i < deltas.length; i++) {
 			int locationDeltas = location + deltas[i];
-			while (true) {
+			while(true) {
 				int locationDeltas_piece_index = position.board[locationDeltas];
 				if (locationDeltas_piece_index == Ajechess.ILLEGAL_MOVE) {
 					break;
@@ -192,9 +203,11 @@ public class ChessAI {
 						if (locationDeltas_piece_index != Ajechess.EMPTY || !safe_move) {
 							break;
 						}
-					} else if (locationDeltas_piece_index != Ajechess.EMPTY)
+					}
+					else if (locationDeltas_piece_index != Ajechess.EMPTY)
 						break;
-				} else if (locationDeltas_piece_index > 0 && locationDeltas_piece_index != Ajechess.EMPTY) {
+				}
+				else if (locationDeltas_piece_index > 0 && locationDeltas_piece_index != Ajechess.EMPTY) {
 					break;
 				}
 				locationDeltas += deltas[i];
@@ -207,7 +220,7 @@ public class ChessAI {
 		int[] deltas = { 11, -11, 9, -9 };
 		for (int i = 0; i < deltas.length; i++) {
 			int locationDeltas = location + deltas[i];
-			while (true) {
+			while(true) {
 				int locationDeltas_piece_index = position.board[locationDeltas];
 				if (locationDeltas_piece_index == Ajechess.ILLEGAL_MOVE) {
 					break;
@@ -219,9 +232,11 @@ public class ChessAI {
 						if (locationDeltas_piece_index != Ajechess.EMPTY || !safe_move) {
 							break;
 						}
-					} else if (locationDeltas_piece_index != Ajechess.EMPTY)
+					}
+					else if (locationDeltas_piece_index != Ajechess.EMPTY)
 						break;
-				} else if (locationDeltas_piece_index < 0) {
+				}
+				else if (locationDeltas_piece_index < 0) {
 					break;
 				}
 				locationDeltas += deltas[i];
@@ -234,7 +249,7 @@ public class ChessAI {
 		int[] deltas = { 1, -1, 10, -10 };
 		for (int i = 0; i < deltas.length; i++) {
 			int locationDeltas = location + deltas[i];
-			while (true) {
+			while(true) {
 				int locationDeltas_piece_index = position.board[locationDeltas];
 				if (locationDeltas_piece_index == Ajechess.ILLEGAL_MOVE) {
 					break;
@@ -246,9 +261,11 @@ public class ChessAI {
 						if (locationDeltas_piece_index != Ajechess.EMPTY) {
 							break;
 						}
-					} else if (locationDeltas_piece_index != Ajechess.EMPTY)
+					}
+					else if (locationDeltas_piece_index != Ajechess.EMPTY)
 						break;
-				} else if (locationDeltas_piece_index > 0 && locationDeltas_piece_index != Ajechess.EMPTY) {
+				}
+				else if (locationDeltas_piece_index > 0 && locationDeltas_piece_index != Ajechess.EMPTY) {
 					break;
 				}
 				locationDeltas += deltas[i];
@@ -261,7 +278,7 @@ public class ChessAI {
 		int[] deltas = { 1, -1, 10, -10 };
 		for (int i = 0; i < deltas.length; i++) {
 			int locationDeltas = location + deltas[i];
-			while (true) {
+			while(true) {
 				int locationDeltas_piece_index = position.board[locationDeltas];
 				if (locationDeltas_piece_index == Ajechess.ILLEGAL_MOVE) {
 					break;
@@ -273,9 +290,11 @@ public class ChessAI {
 						if (locationDeltas_piece_index != Ajechess.EMPTY) {
 							break;
 						}
-					} else if (locationDeltas_piece_index != Ajechess.EMPTY)
+					}
+					else if (locationDeltas_piece_index != Ajechess.EMPTY)
 						break;
-				} else if (locationDeltas_piece_index < 0) {
+				}
+				else if (locationDeltas_piece_index < 0) {
 					break;
 				}
 				locationDeltas += deltas[i];
@@ -288,7 +307,7 @@ public class ChessAI {
 		int[] deltas = { 1, -1, 10, -10, 11, -11, 9, -9 };
 		for (int i = 0; i < deltas.length; i++) {
 			int locationDeltas = location + deltas[i];
-			while (true) {
+			while(true) {
 				int locationDeltas_piece_index = position.board[locationDeltas];
 				if (locationDeltas_piece_index == Ajechess.ILLEGAL_MOVE) {
 					break;
@@ -300,9 +319,11 @@ public class ChessAI {
 						if (locationDeltas_piece_index != Ajechess.EMPTY) {
 							break;
 						}
-					} else if (locationDeltas_piece_index != Ajechess.EMPTY)
+					}
+					else if (locationDeltas_piece_index != Ajechess.EMPTY)
 						break;
-				} else if (locationDeltas_piece_index > 0 && locationDeltas_piece_index != Ajechess.EMPTY) {
+				}
+				else if (locationDeltas_piece_index > 0 && locationDeltas_piece_index != Ajechess.EMPTY) {
 					break;
 				}
 				locationDeltas += deltas[i];
@@ -315,7 +336,7 @@ public class ChessAI {
 		int[] deltas = { 1, -1, 10, -10, 11, -11, 9, -9 };
 		for (int i = 0; i < deltas.length; i++) {
 			int locationDeltas = location + deltas[i];
-			while (true) {
+			while(true) {
 				int locationDeltas_piece_index = position.board[locationDeltas];
 				if (locationDeltas_piece_index == Ajechess.ILLEGAL_MOVE) {
 					break;
@@ -327,9 +348,11 @@ public class ChessAI {
 						if (locationDeltas_piece_index != Ajechess.EMPTY) {
 							break;
 						}
-					} else if (locationDeltas_piece_index != Ajechess.EMPTY)
+					}
+					else if (locationDeltas_piece_index != Ajechess.EMPTY)
 						break;
-				} else if (locationDeltas_piece_index < 0) {
+				}
+				else if (locationDeltas_piece_index < 0) {
 					break;
 				}
 				locationDeltas += deltas[i];
